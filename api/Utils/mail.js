@@ -8,8 +8,8 @@ const mail = async (email, subject, token) => {
         tls:true,
         secure: false, // true for 465, false for other ports
         auth: {
-          user: 'leduardo.rondon@gmail.com', // generated ethereal user
-          pass: 'Ler.88@2020#', // generated ethereal password
+          user: 'mail@gmail.com', // generated ethereal user
+          pass: 'pass', // generated ethereal password
         },
       });
 

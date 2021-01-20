@@ -1,6 +1,6 @@
 var express = require('express');
 var local = express.Router();
-const PPN_Local = require('../models/PPN/PPN_Local');
+const PPN_Local = require('../../models/PPN/PPN_Local');
 
 //post PPN_Local
 local.post('/ppn_local', async (req, res) => {

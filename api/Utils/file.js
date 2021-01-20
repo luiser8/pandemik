@@ -1,5 +1,5 @@
 var express = require('express');
-var db = require('../db');
+var db = require('../../db');
 var files = express.Router();
 var multer  = require('multer');
 

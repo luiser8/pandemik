@@ -11,6 +11,9 @@ var app = express();
 require('./db');
 app.use(morgan('combined'));
 
+//configuracion del puerto, Roymer 20/01/2021
+app.set('port', process.env.PORT || 9000);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -48,8 +51,8 @@ app.use((err, req, res, next) => {
 });
 
 //set port
-app.listen(9000, () => {
-    console.log('Node port 9000');
+app.listen(app.get('port'), () => {
+    console.log(`Node port ${app.get('port')}`);
 });
 
 module.exports = app;

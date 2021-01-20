@@ -2,7 +2,20 @@ const express = require('express');
 const poligono = express.Router();
 const PPN_Poligono = require('../../models/PPN/PPN_Poligono');
 
-//consultar a poligono
+//consultar a poligonos
+poligono.get('/poligonos', async (req, res)=>{
+    try {
+        const resPoligono = await PPN_Poligono.find({});
+        res.status(200).json({
+            resPoligono
+        })
+    } catch (error) {
+        res.status(500).json({
+            statusError: error
+        })
+    }
+})
+
 
 //agregar poligono
 poligono.post('/agregarPoligono', async (req, res)=>{

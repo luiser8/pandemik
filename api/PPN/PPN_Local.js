@@ -9,7 +9,7 @@ local.post('/ppn_local', async (req, res) => {
     try {
         await newLocal.save();
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 })
 

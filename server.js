@@ -12,7 +12,7 @@ require('./db');
 app.use(morgan('combined'));
 
 //configuracion del puerto, Roymer 20/01/2021
-app.set('port', process.env.PORT || 9000);
+app.set('port', process.env.PORT || 9010);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,6 +30,8 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 //Routes
 app.use(require('./routes/routes'));
+//Ruta para poligonos
+app.use(require('./api/PPN/PPN_Poligono'));
 
 //Swagger
 app.use('/api/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocument));

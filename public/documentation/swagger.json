@@ -1,0 +1,168 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Node service",
+      "description": "Service Application API",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:8000",
+    "basePath": "/",
+    "schemes": [
+      "http"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/api/addCountry": {
+        "post": {
+          "tags": [
+            "Countries"
+          ],
+          "description": "Create new Country in system",
+          "parameters": [
+            {
+                "name": "country",
+                "in": "body",
+                "description": "Country that we want to create",
+                "schema": {
+                    "$ref": "#/definitions/Country"
+                }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "New Country is created",
+              "schema": {
+                "$ref": "#/definitions/Country"
+              }
+            }
+          }
+        } 
+      },
+      "/api/countries": {
+        "get": {
+            "tags": [
+              "Countries"
+            ],
+            "summary": "Get all countries in system",
+            "responses": {
+              "200": {
+                "description": "OK",
+                "schema": {
+                  "$ref": "#/definitions/Country"
+                }
+              }
+            }
+          }
+      },
+      "/api/countries{id}": {
+        "get": {
+            "tags": [
+              "Countries"
+            ],
+            "summary": "Get for id countries in system",
+            "parameters": [
+                {
+                  "name": "id",
+                  "schema": {
+                    "$ref": "#/definitions/Country"
+                  }
+                }
+              ],
+            "responses": {
+              "200": {
+                "description": "OK",
+                "schema": {
+                  "$ref": "#/definitions/Country"
+                }
+              }
+            }
+          }
+      },
+      "/api/countries/{id}": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of country that we want to find",
+            "type": "Object"
+          }
+        ],
+        "delete": {
+          "summary": "Delete country with given ID",
+          "tags": [
+            "Countries"
+          ],
+          "responses": {
+            "200": {
+              "description": "Country is deleted",
+              "schema": {
+                "$ref": "#/definitions/Country"
+              }
+            }
+          }
+        },
+        "put": {
+          "summary": "Update country with give ID",
+          "tags": [
+            "Countries"
+          ],
+          "parameters": [
+            {
+              "name": "country",
+              "in": "body",
+              "description": "Countries with new values of properties",
+              "schema": {
+                "$ref": "#/definitions/updateCountry"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Country is updated",
+              "schema": {
+                "$ref": "#/definitions/Country"
+              }
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Country": {
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "_id": {
+            "type": "Object",
+            "uniqueItems": true
+          },
+          "name": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "status": {
+            "type": "boolean"
+          }
+        }
+      }     
+    }
+  }

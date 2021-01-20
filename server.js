@@ -30,8 +30,6 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 //Routes
 app.use(require('./routes/routes'));
-//Ruta para poligonos
-app.use(require('./api/PPN/PPN_Poligono'));
 
 //Swagger
 app.use('/api/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocument));

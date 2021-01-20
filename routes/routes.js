@@ -9,6 +9,6 @@ router.get('/', (req, res) => {
 
 //PPN_Local
 router.use('/api', localRouter);
-;
+router.use('/api', polyonRouter);
 
 module.exports = router;

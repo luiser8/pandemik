@@ -9,6 +9,8 @@ poligono.get('/poligonos', async (req, res)=>{
         res.status(200).json({
             resPoligono
         })
+        var coordenadas = resPoligono[0].geo.coordinates[0][0]
+        console.info(coordenadas)
     } catch (error) {
         res.status(500).json({
             statusError: error

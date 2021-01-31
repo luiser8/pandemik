@@ -1,13 +1,16 @@
 var express = require('express');
+var compression = require('compression');
 var createError = require('http-errors');
 var body_parser = require('body-parser');
 var morgan = require('morgan');
 var cors = require('cors');
 var path = require('path');
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./public/documentation/swagger.json');
+var swaggerUi = require('swagger-ui-express');
+var swaggerDocument = require('./public/documentation/swagger.json');
 
+//Express inicializacion
 var app = express();
+app.use(compression());
 require('./db');
 app.use(morgan('combined'));
 
